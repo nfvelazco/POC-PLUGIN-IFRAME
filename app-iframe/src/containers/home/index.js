@@ -13,7 +13,7 @@ class Home extends Component {
             <div className={'home-container'}>
                 <img src={logo} className="App-logo" alt="logo" />
                 <Typography variant="h4" gutterBottom>
-                    la url donde me estoy mostrando es: {urlOrigen}
+                    El Producto es: {urlOrigen}
                 </Typography>
             </div>
         );
