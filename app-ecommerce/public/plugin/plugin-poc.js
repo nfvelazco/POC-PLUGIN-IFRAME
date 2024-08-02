@@ -46,7 +46,7 @@ try {
     await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
     console.log('El script se ha cargado correctamente.');
     const urlConBarra = (url) => `${url}/`
-    $(document).ready(function() {
+    //$(document).ready(function() {
         setInterval(function() {
             const currentUrl = window.location.href;
             //console.log(currentUrl)
@@ -70,7 +70,7 @@ try {
                 $("#ifame-stream").remove()
             }
         }, 500); // Verifica cada segundo
-    });
+   // });
     // Aquí puedes realizar otras acciones después de que el script se haya cargado.
 } catch (error) {
     console.error('Error al cargar el script:', error);
