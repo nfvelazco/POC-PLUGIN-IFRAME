@@ -39,7 +39,7 @@ try {
         },
         { 
          url: 'http://localhost:3001',
-         parametro: 'React App Ecommerce'
+         parametro: 'promoter-liposomas-spray-crecimiento-cejas-pestanas'
         }
      ];
      
@@ -54,15 +54,15 @@ try {
             if(find_url.length>0){
                 // Codifica la URL para usarla como parámetro de consulta
                 //const encodedUrl = encodeURIComponent(currentUrl);
-                const hostIframe = 'http://localhost:3000/'
+                const hostIframe = 'http://182.160.29.93:8501/'
                 // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
                 const queryParam = `product_id=${find_url[0].parametro}`;
-                if(currentUrl.indexOf('text')==-1){
+                
                     //console.log(queryParam)
                     if($("#ifame-stream").length === 0) {
-                        $(document.body).append(`<iframe id="ifame-stream" style="height: 500px !important; width: 500px !important; position: rigth" src="${hostIframe}?${queryParam}"/>`)
+                        $(document.body).append(`<iframe id="ifame-stream" style="height: 500px !important; width: 500px !important; position: fixed; bottom: 3px; border-color:#777; cursor: default !important; right: 5px;border-radius: 20px;" src="${hostIframe}?${queryParam}"/>`)
                     }
-                }
+                
             }
             else{
                 if($("#ifame-stream").length > 0)
