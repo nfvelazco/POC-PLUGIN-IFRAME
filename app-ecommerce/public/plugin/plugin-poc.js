@@ -46,7 +46,7 @@ try {
     await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
     console.log('El script se ha cargado correctamente.');
     const urlConBarra = (url) => `${url}/`
-    //$(document).ready(function() {
+    $(document).ready(function() {
         setInterval(function() {
             const currentUrl = window.location.href;
             //console.log(currentUrl)
@@ -60,6 +60,7 @@ try {
                 
                     //console.log(queryParam)
                     if($("#ifame-stream").length === 0) {
+                        console.log('append Iframe')
                         $(document.body).append(`<iframe id="ifame-stream" style="height: 500px !important; width: 500px !important; position: fixed; bottom: 3px; border-color:#777; cursor: default !important; right: 5px;border-radius: 20px;" src="${hostIframe}?${queryParam}"/>`)
                     }
                 
@@ -70,7 +71,8 @@ try {
                 $("#ifame-stream").remove()
             }
         }, 500); // Verifica cada segundo
-   // });
+    });
+    console.log('Ready cargado')
     // Aquí puedes realizar otras acciones después de que el script se haya cargado.
 } catch (error) {
     console.error('Error al cargar el script:', error);
