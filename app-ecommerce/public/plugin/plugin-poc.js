@@ -18,23 +18,23 @@ return new Promise((resolve, reject) => {
 try {
     const URLs = [
         { 
-         url: "https://muyestetica.com/shoponline/protectores-solares/faciales/crema-clarificante-de-manchas-c-acido-mandelico-kojico-piel-normal",
+         url: "https://muyestetica.egoforum.us/shoponline/protectores-solares/faciales/crema-clarificante-de-manchas-c-acido-mandelico-kojico-piel-normal",
          parametro: 'crema-clarificante-de-manchas-c-acido-mandelico-kojico-piel-normal'
         },
         { 
-         url: 'https://muyestetica.com/shoponline/facial/cuidado-facial/serum-geles-y-cremas-faciales/crema-hidratante-facial-prevencion-de-arrugas-hydra10',
+         url: 'https://muyestetica.egoforum.us/shoponline/facial/cuidado-facial/serum-geles-y-cremas-faciales/crema-hidratante-facial-prevencion-de-arrugas-hydra10',
          parametro: 'crema-hidratante-facial-prevencion-de-arrugas-hydra10'
         },
         { 
-         url: 'https://muyestetica.com/shoponline/facial/cuidado-facial/serum-geles-y-cremas-faciales/crema-nutritiva-con-colageno-elastina-y-vitamina-e',
+         url: 'https://muyestetica.egoforum.us/shoponline/facial/cuidado-facial/serum-geles-y-cremas-faciales/crema-nutritiva-con-colageno-elastina-y-vitamina-e',
          parametro: 'crema-nutritiva-con-colageno-elastina-y-vitamina-e'
         },
         { 
-         url: 'https://muyestetica.com/shoponline/facial/cuidado-facial/ojos-y-parpados/promoter-liposomas-spray-crecimiento-cejas-pestanas',
+         url: 'https://muyestetica.egoforum.us/shoponline/facial/cuidado-facial/ojos-y-parpados/promoter-liposomas-spray-crecimiento-cejas-pestanas',
          parametro: 'promoter-liposomas-spray-crecimiento-cejas-pestanas'
         },
         { 
-         url: 'https://muyestetica.com/shoponline/capilar/accesorios-para-el-cabello/redecilla-de-pelo',
+         url: 'https://muyestetica.egoforum.us/shoponline/capilar/accesorios-para-el-cabello/redecilla-de-pelo',
          parametro: 'redecilla-de-pelo'
         },
         { 
