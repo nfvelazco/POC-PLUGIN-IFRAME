@@ -54,7 +54,7 @@ try {
             if(find_url.length>0){
                 // Codifica la URL para usarla como parámetro de consulta
                 //const encodedUrl = encodeURIComponent(currentUrl);
-                const hostIframe = 'http://182.160.29.93:8501/'
+                const hostIframe = 'https://182.160.29.93:8501/'
                 // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
                 const queryParam = `product_id=${find_url[0].parametro}`;
                 
