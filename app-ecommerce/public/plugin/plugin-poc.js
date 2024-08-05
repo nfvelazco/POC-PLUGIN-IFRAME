@@ -61,7 +61,23 @@ try {
                     //console.log(queryParam)
                     if($("#ifame-stream").length === 0) {
                         console.log('append Iframe')
-                        $(document.body).append(`<iframe id="ifame-stream" style="height: 500px !important; width: 500px !important; position: fixed; bottom: 3px; border-color:#777; cursor: default !important; right: 5px;border-radius: 20px;" src="${hostIframe}?${queryParam}"/>`)
+                        const style = `
+                            <style id="iframe-style">
+                                #ifame-stream {
+                                    position: fixed;
+                                    bottom: 16px;
+                                    right: 16px;
+                                    height: 480px;
+                                    width: 480px;
+                                    border: 1px solid #eee;
+                                    cursor: default;
+                                    border-radius: 24px;
+                                    box-shadow: 0 0 8px -4px rgba(0, 0, 0, .1);
+                                }
+                            </style>
+                        `;
+                        $('head').append(style);
+                        $(document.body).append(`<iframe id="ifame-stream" src="${hostIframe}?${queryParam}"/>`)
                     }
                 
             }
