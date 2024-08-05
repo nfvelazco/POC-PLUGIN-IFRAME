@@ -18,7 +18,7 @@ const RouterApp = ({location}) => {
             <CssBaseline />
             <div className="container-route">
                 <Box className="loader">
-                    <CircularProgress className="circularProgress" size={ 50 } color="inherit" />
+                    <CircularProgress className="circularProgress" size={ 48 } color="inherit" />
                     <Typography component="div" variant="caption" className="label">Iniciando...</Typography>
                 </Box>
                 <TransitionGroup className="transition-group"> 
