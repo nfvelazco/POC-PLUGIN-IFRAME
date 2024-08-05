@@ -58,29 +58,46 @@ try {
                 // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
                 const queryParam = `product_id=${find_url[0].parametro}`;
                 
-                    //console.log(queryParam)
-                    if($("#ifame-stream").length === 0) {
-                        console.log('append Iframe')
-                        const style = `
-                            <style id="iframe-style">
-                                #ifame-stream {
-                                    position: fixed;
-                                    bottom: 16px;
-                                    right: 16px;
-                                    z-index: 999999;
-                                    height: 480px;
-                                    width: 480px;
-                                    border: 1px solid #ddd;
-                                    cursor: default;
-                                    border-radius: 24px;
-                                    box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
-                                }
-                            </style>
-                        `;
-                        $('head').append(style);
-                        $(document.body).append(`<iframe id="ifame-stream" src="${hostIframe}?${queryParam}"/>`)
-                    }
-                
+                if($("#ifame-stream").length === 0) {
+                    console.log('append Iframe')
+                    const style = `
+                        <style id="iframe-style">
+                            #ifame-stream,
+                            #ifame-stream-loader {
+                                position: fixed;
+                                bottom: 16px;
+                                right: 16px;
+                                z-index: 999999;
+                                height: 480px;
+                                width: 480px;
+                                border: 1px solid #ddd;
+                                border-radius: 24px;
+                                box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
+                            }
+                            #ifame-stream {
+                                cursor: default;
+                            }
+                            #ifame-stream-loader {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: #d9261c;
+                                font-size: 12px;
+                                font-weight: 400;
+                                text-transform: uppercase;
+                            }
+                        </style>
+                    `;
+                    $('head').append(style);
+
+                    $(document.body).append('<div id="ifame-stream-loader">Iniciando...</div>');
+
+                    $(document.body).append(`<iframe id="ifame-stream" src="${hostIframe}?${queryParam}"/>`)
+
+                    $("#ifame-stream").on('load', function() {
+                        $("#ifame-stream-loader").remove();
+                    });
+                }
             }
             else{
                 if($("#ifame-stream").length > 0)
