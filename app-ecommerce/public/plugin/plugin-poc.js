@@ -70,17 +70,18 @@ try {
                                 z-index: 999999;
                                 height: 480px;
                                 width: 480px;
-                                border: 1px solid #ddd;
                                 border-radius: 24px;
-                                box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
                             }
                             #ifame-stream {
                                 cursor: default;
+                                border: 1px solid #ddd;
+                                box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
                             }
                             #ifame-stream-loader {
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
+                                background-color: #fff;
                                 color: #d9261c;
                                 font-size: 12px;
                                 font-weight: 400;
