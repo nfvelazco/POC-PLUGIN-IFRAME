@@ -44,12 +44,27 @@ flex: 1;
   overflow-y: hidden;
 } */
 
-.circularProgress{
-  color: #ffffff;
+.loader {
   position: fixed;
-  top: 40%;
-  left: 46%;
+  bottom: 16px;
+  right: 16px;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 480px;
+  width: 480px;
+}
+
+.label {
+  color: #d9261c;
+  text-transform: uppercase;
+  padding-top: .5rem;
+}
+
+.circularProgress{
+  color: #d9261c;
 }
 
 .transition-group{

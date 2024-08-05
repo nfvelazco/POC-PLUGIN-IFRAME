@@ -67,12 +67,13 @@ try {
                                     position: fixed;
                                     bottom: 16px;
                                     right: 16px;
+                                    z-index: 999999;
                                     height: 480px;
                                     width: 480px;
-                                    border: 1px solid #eee;
+                                    border: 1px solid #ddd;
                                     cursor: default;
                                     border-radius: 24px;
-                                    box-shadow: 0 0 8px -4px rgba(0, 0, 0, .1);
+                                    box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
                                 }
                             </style>
                         `;
