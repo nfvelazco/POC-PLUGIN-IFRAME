@@ -4,7 +4,7 @@ import {
 } from '../constants/router';
 import { Route, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { CssBaseline, CircularProgress } from '@material-ui/core/';
+import { Box, CssBaseline, CircularProgress, Typography } from '@material-ui/core/';
 
 
 
@@ -17,7 +17,10 @@ const RouterApp = ({location}) => {
         <div>
             <CssBaseline />
             <div className="container-route">
-                <CircularProgress className="circularProgress" size={ 50 } color="inherit" />
+                <Box className="loader">
+                    <CircularProgress className="circularProgress" size={ 50 } color="inherit" />
+                    <Typography component="div" variant="caption" className="label">Iniciando...</Typography>
+                </Box>
                 <TransitionGroup className="transition-group"> 
                     <CSSTransition
                         key={currentKey}
