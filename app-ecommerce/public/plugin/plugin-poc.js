@@ -83,8 +83,9 @@ try {
                                 justify-content: center;
                                 background-color: #fff;
                                 color: #d9261c;
-                                font-size: 12px;
-                                font-weight: 400;
+                                font-size: 14px;
+                                font-weight: 600;
+                                letter-spacing: 2px;
                                 text-transform: uppercase;
                             }
                         </style>
