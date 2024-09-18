@@ -40,6 +40,11 @@ try {
         { 
          url: 'http://localhost:3001',
          parametro: 'promoter-liposomas-spray-crecimiento-cejas-pestanas'
+        },
+
+        { 
+            url: 'http://127.0.0.1:5501/app-ecommerce/public/ejemplo.html',
+            parametro: 'promoter-liposomas-spray-crecimiento-cejas-pestanas'
         }
      ];
      
@@ -51,6 +56,7 @@ try {
             const currentUrl = window.location.href;
             //console.log(currentUrl)
             const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
+               
             if(find_url.length>0){
                 // Codifica la URL para usarla como parámetro de consulta
                 //const encodedUrl = encodeURIComponent(currentUrl);
@@ -58,7 +64,13 @@ try {
                 // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
                 const queryParam = `product_id=${find_url[0].parametro}`;
                 
-                if($("#ifame-stream").length === 0) {
+                if($("#iaframeStream").length === 0) {
+
+                    $(document).on('click', '#iabotBtn', function() {
+                        $('#iaframeStream').toggleClass('open');
+                        $('#iabot').toggleClass('opened');
+                    });
+
                     console.log('append Iframe')
                     const style = `
                         <style id="iframe-style">
@@ -90,21 +102,38 @@ try {
                             }
                         </style>
                     `;
-                    $('head').append(style);
 
-                    $(document.body).append('<div id="ifame-stream-loader">Iniciando...</div>');
+                    const link = `
+                        <link id="iframe-style-link" rel="stylesheet" href="./plugin/styles.css">
+                    `;
 
-                    $(document.body).append(`<iframe id="ifame-stream" src="${hostIframe}?${queryParam}"/>`)
+                    $('head').append(link);
 
-                    $("#ifame-stream").on('load', function() {
-                        $("#ifame-stream-loader").remove();
+                    $(document.body).append(`<div id="iabot" class="iabot">
+                                                <div class="iabot-bubble">¡Hola! ¿en qué puedo ayudarte?</div> 
+                                                <button type="button" id="iabotBtn" class="iabot-btn">
+                                                    <div class="iabot-icon">
+                                                        <img src="./plugin/icon.svg" />
+                                                    </div>
+                                                    <div class="iabot-close">
+                                                        <img src="./plugin/close.svg" />
+                                                    </div>
+                                                </button>
+                                            </div>`);
+                    
+                    $(document.body).append('<div id="iaframeStreamLoader" class="iaframe-stream-loader">Iniciando...</div>');
+
+                    $(document.body).append(`<iframe id="iaframeStream" class="iaframe-stream" src="${hostIframe}?${queryParam}"/>`)
+
+                    $("#iaframeStream").on('load', function() {
+                        $("#iaframeStreamLoader").remove();
                     });
                 }
             }
             else{
-                if($("#ifame-stream").length > 0)
+                if($("#iaframeStream").length > 0)
                     console.log(`La url: "${currentUrl}" no se encuentra en la lista permitida`)
-                $("#ifame-stream").remove()
+                $("#iaframeStream").remove()
             }
         }, 500); // Verifica cada segundo
     });
