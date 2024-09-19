@@ -28,6 +28,7 @@
    --white: #FFF;
 }
 
+/* Solo para Muy Estética  */
 .joinchat__button {
    display: none;
 }
@@ -35,20 +36,23 @@
 .iaframe-stream,
 .iaframe-stream-loader {
    position: fixed;
-   bottom: -480px;
    right: 16px;
    z-index: 999999;
-   height: 480px;
+   height: 560px;
    width: 400px;
    border-radius: 24px;
-   /* opacity: 0; */
-   transition: bottom .7s ease, opacity .7s ease;
 }
 
 .iaframe-stream {
+   bottom: -560px;
+   z-index: 999999;
    cursor: default;
+   background-color: rgba(255, 255, 255, 0.7);
+   backdrop-filter: blur(4px);
    border: 1px solid #ddd;
    box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
+   opacity: 0;
+   transition: bottom .7s ease, opacity .7s ease;
 }
 
 .iaframe-stream.open {
@@ -57,15 +61,20 @@
 }
 
 .iaframe-stream-loader {
-   display: flex;
+   bottom: 80px;
+   z-index: 9999999;
+   display: none;
    align-items: center;
    justify-content: center;
-   background-color: #fff;
-   color: #d9261c;
+   color: var(--primary);
    font-size: 14px;
    font-weight: 600;
    letter-spacing: 2px;
    text-transform: uppercase;
+}
+
+.iaframe-stream-loader.open {
+   display: flex;
 }
 
 .iabot {
@@ -130,20 +139,20 @@
 }
 
 .iabot:not(.opened) .iabot-bubble {
-   animation: bubbleFadeInOut 10s infinite;
+   animation: bubbleFadeInOut 14s infinite;
 }
 
 @keyframes bubbleFadeInOut {
-   0% {
+   0%, 50% {
       transform: translateY(76px);
    }
-   10% {
+   55% {
       transform: translateY(0);
    }
-   60% {
+   90% {
       transform: translateY(0);
    }
-   65%, 100% {
+   95%, 100% {
       transform: translateY(76px);
    }
 }
@@ -151,11 +160,11 @@
 @media screen and (max-width: 767px) {
    .iaframe-stream,
    .iaframe-stream-loader {
-      bottom: -100%;
+      width: calc(100% - 2rem);
+      height: calc(100% - 80px - 1rem);
    }
 
-	.iaframe-stream {
-		width: calc(100% - 2rem);
-      height: calc(100% - 80px - 1rem);
+   .iaframe-stream {
+      bottom: -100%;
 	}
 }
