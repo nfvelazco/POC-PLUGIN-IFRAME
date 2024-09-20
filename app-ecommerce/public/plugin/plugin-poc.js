@@ -34,10 +34,6 @@ try {
       {
          url: 'http://127.0.0.1:5501/app-ecommerce/public/ejemplo.html',
          parametro: 'redecilla-de-pelo'
-      },
-      {
-         url: 'http://127.0.0.1:5501/app-ecommerce/public/ejemplo.html',
-         parametro: 'hola'
       }
    ];
      
@@ -232,7 +228,7 @@ try {
                         .iaframe-stream,
                         .iaframe-stream-loader {
                            width: calc(100% - 2rem);
-                           height: calc(100% - 80px - 1rem);
+                           height: calc(100vh - 80px - 1rem);
                         }
 
                         .iaframe-stream {
