@@ -273,8 +273,10 @@ try {
                });
 
                $(window).on('resize', function() {
-                  var viewportHeight = window.visualViewport ? window.visualViewport.height : $(window).height();
-                  $('#iaframeStream').css('height', (viewportHeight - 104)  + 'px');
+                  if ($(window).width() <= 767) {
+                     var viewportHeight = window.visualViewport ? window.visualViewport.height : $(window).height();
+                     $('#iaframeStream').css('height', (viewportHeight - 104)  + 'px');
+                  }
                });
             }
          }
