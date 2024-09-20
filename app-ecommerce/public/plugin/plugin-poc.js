@@ -234,10 +234,6 @@ try {
                   </style>
                `;
 
-               // const link = `
-               //    <link id="iframe-style-link" rel="stylesheet" href="./plugin/styles.css">
-               // `;
-
                $('head').append(style);
 
                $(document.body).append(`<div id="iabot" class="iabot">
