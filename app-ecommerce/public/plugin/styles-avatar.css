@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+   --body-color: #2e2e2e;
+   --body-font-family: "Noto Sans", sans-serif;
+   --body-font-family-title: "Noto Serif", serif;
+   --primary: #d9261c;
+   --primary-rgb: 217, 38, 28;
+   --primary-light: #ffccce;
+   --primary-lighter: #ffeaed;
+   --secondary: #42B5AE;
+   --secondary-rgb: 66, 181, 174;
+   --secondary: #42b5ae;
+   --secondary-light: #b0dfdc;
+   --secondary-lighter: #dff2f1;
+   --secondary-dark: #01a59b;
+   --gray-light: #9e9e9e; 
+   --gray-lighter: #dedede; 
+   --font-size-base: 1rem; 
+   --font-size-lg: 1.25rem; 
+   --font-size-sm: .875rem; 
+   --line-height-base: 1.5;
+   --border-radius-xxl: 1.5rem;
+   --blue: #4E90CB;
+   --blue-light: #E6F3F9;
+   --blue-light-rgb: 230, 243, 249;
+   --yellow: #FEFBF7;
+   --white: #FFF;
+}
+
+/* Solo para Muy Estética  */
+.joinchat__button {
+   display: none;
+}
+
+.iawindow,
+.iawindow-loader {
+   position: fixed;
+   right: 16px;
+   z-index: 999999;
+   height: 560px;
+   width: 400px;
+   border-radius: 24px;
+}
+
+.iawindow {
+   bottom: -560px;
+   z-index: 999999;
+   cursor: default;
+   background-color: rgba(255, 255, 255, 0.7);
+   backdrop-filter: blur(4px);
+   border: 1px solid #ddd;
+   box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
+   opacity: 0;
+   transition: bottom .7s ease, opacity .7s ease;
+   overflow: hidden;
+}
+
+.iawindow iframe {
+   width: 100%;
+   height: calc(100% - 75px);
+   border: 0;
+}
+
+.iawindow .iawindow-header {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   background-color: var(--secondary-lighter);
+   border-bottom: 1px solid var(--secondary-light);
+}
+
+.iawindow .iawindow-header .iawindow-avatar {
+   width: 74px;
+   height: 74px;
+   border-radius: var(--border-radius-xxl)  var(--border-radius-xxl) var(--border-radius-xxl) 0;
+   overflow: hidden;
+}
+
+.iawindow .iawindow-header .iawindow-avatar img {
+   width: 100%;
+   height: auto;
+}
+
+.iawindow .iawindow-header h3 {
+   color: var(--body-color);
+   font-family: var(--body-font-family-title);
+   font-size: var(--font-size-lg);
+   font-weight: 700;
+}
+
+.iawindow.open {
+   bottom: 80px;
+   opacity: 1;
+}
+
+.iawindow-loader {
+   bottom: 80px;
+   z-index: 9999999;
+   display: none;
+   align-items: center;
+   justify-content: center;
+   color: var(--primary);
+   font-size: 14px;
+   font-weight: 600;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+}
+
+.iawindow-loader.open {
+   display: flex;
+}
+
+.iabot {
+   position: fixed;
+   bottom: 16px;
+   right: 16px;
+   z-index: 9999999;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: flex-start;
+}
+
+.iabot .iabot-btn {
+   padding: 0;
+   background: transparent;
+   border: none;
+   cursor: pointer;
+}
+
+.iabot .iabot-btn > div {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.iabot-avatar {
+   width: 120px;
+   height: 120px;
+   border: 1px solid var(--secondary-light);
+   border-radius: var(--border-radius-xxl);
+   overflow: hidden;
+   box-shadow: 0 0 .8rem rgba(var(--secondary-rgb), .4);
+}
+
+.iabot-avatar img {
+   width: 100%;
+   height: auto;
+}
+
+.iabot .iabot-btn .iabot-close {
+   width: 46px;
+   height: 46px;
+   display: none;
+   background-color: var(--white);
+   border: 1px solid var(--secondary-light);
+   border-radius: 50%;
+   box-shadow: 0 0 .4rem rgba(var(--secondary-rgb), .4);
+}
+
+.iabot.opened {
+   align-items: flex-end;
+}
+
+.iabot.opened .iabot-btn .iabot-avatar {
+   display: none;
+}
+
+.iabot.opened .iabot-btn .iabot-close {
+   display: flex;
+} 
+
+.iabot .iabot-bubble {
+   background-color: var(--primary-lighter);
+   border: 1px solid var(--primary-light);
+   border-radius: var(--border-radius-xxl) 0 var(--border-radius-xxl) var(--border-radius-xxl);
+   padding: .5rem 1rem;
+   margin: .5rem 1rem .5rem 0;
+   box-shadow: 0 .25rem .25rem -.2rem rgba(var(--primary-rgb), .4);
+   color: var(--body-color);
+   font-family: var(--body-font-family);
+   font-size: var(--font-size-sm);
+   font-weight: 500;
+   transform: translateY(136px);
+   transition: transform .4s ease-in-out;
+}
+
+.iabot:not(.opened) .iabot-bubble {
+   animation: bubbleFadeInOut 14s infinite;
+}
+
+@keyframes bubbleFadeInOut {
+   0%, 50% {
+      transform: translateY(136px);
+   }
+   55% {
+      transform: translateY(0);
+   }
+   90% {
+      transform: translateY(0);
+   }
+   95%, 100% {
+      transform: translateY(136px);
+   }
+}
+
+@media screen and (max-width: 767px) {
+   .iawindow,
+   .iawindow-loader {
+      width: calc(100% - 2rem);
+      height: calc(100vh - 160px);
+   }
+
+   .iawindow {
+      bottom: -100%;
+	}
+}
