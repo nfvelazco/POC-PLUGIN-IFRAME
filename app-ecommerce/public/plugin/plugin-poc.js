@@ -128,6 +128,7 @@ try {
                      width: 100%;
                      height: calc(100% - 61px - 24px);
                      border: 0;
+                     display: block;
                   }
 
                   .iawindow .iawindow-header {
