@@ -15,10 +15,11 @@
    --secondary-lighter: #dff2f1;
    --secondary-dark: #01a59b;
    --gray-light: #9e9e9e; 
-   --gray-lighter: #dedede; 
+   --gray-lighter: #f0f0f0; 
    --font-size-base: 1rem; 
-   --font-size-lg: 1.25rem; 
+   --font-size-lg: 1.125rem; 
    --font-size-sm: .875rem; 
+   --font-size-xs: .75rem; 
    --line-height-base: 1.5;
    --border-radius-xxl: 1.5rem;
    --blue: #4E90CB;
@@ -33,8 +34,8 @@
    display: none;
 }
 
-.iaframe-stream,
-.iaframe-stream-loader {
+.iawindow,
+.iawindow-loader {
    position: fixed;
    right: 16px;
    z-index: 999999;
@@ -43,7 +44,7 @@
    border-radius: 24px;
 }
 
-.iaframe-stream {
+.iawindow {
    bottom: -560px;
    z-index: 999999;
    cursor: default;
@@ -53,14 +54,60 @@
    box-shadow: 0 0 16px -4px rgba(0, 0, 0, .2);
    opacity: 0;
    transition: bottom .7s ease, opacity .7s ease;
+   overflow: hidden;
 }
 
-.iaframe-stream.open {
+.iawindow iframe {
+   width: 100%;
+   height: calc(100% - 61px - 24px);
+   border: 0;
+}
+
+.iawindow .iawindow-header {
+   display: flex;
+   align-items: center;
+   height: 44px;
+   gap: 1rem;
+   padding: .5rem 1rem;
+   border-bottom: 1px solid var(--gray-lighter);
+}
+
+.iawindow .iawindow-header .iawindow-icon {
+   filter: drop-shadow(0 .125rem .125rem rgba(var(--secondary-rgb), .7));
+}
+
+.iawindow .iawindow-header .iawindow-icon svg {
+   height: 42px;
+   width: auto;
+   display: block;
+}
+
+.iawindow .iawindow-header h3 {
+   color: var(--body-color);
+   font-family: var(--body-font-family-title);
+   font-size: var(--font-size-lg);
+   font-weight: 700;
+}
+
+.iawindow .iawindow-copy {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 24px;
+   background-color: var(--white);
+}
+
+.iawindow .iawindow-copy > div {
+   color: var(--gray-light);
+   font-size: var(--font-size-xs);
+   text-align: center;
+}
+.iawindow.open {
    bottom: 80px;
    opacity: 1;
 }
 
-.iaframe-stream-loader {
+.iawindow-loader {
    bottom: 80px;
    z-index: 9999999;
    display: none;
@@ -73,7 +120,7 @@
    text-transform: uppercase;
 }
 
-.iaframe-stream-loader.open {
+.iawindow-loader.open {
    display: flex;
 }
 
@@ -158,13 +205,13 @@
 }
 
 @media screen and (max-width: 767px) {
-   .iaframe-stream,
-   .iaframe-stream-loader {
+   .iawindow,
+   .iawindow-loader {
       width: calc(100% - 2rem);
       height: calc(100vh - 160px);
    }
 
-   .iaframe-stream {
+   .iawindow {
       bottom: -100%;
-	}
+   }
 }
