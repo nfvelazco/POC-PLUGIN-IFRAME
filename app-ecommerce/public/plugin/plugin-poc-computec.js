@@ -269,6 +269,10 @@ try {
                         .iawindow {
                            bottom: -100%;
                         }
+
+                        .iawindow .iawindow-header h3 {
+                           font-size: var(--font-size-sm);
+                        }
                      }
                   </style>
                `;
