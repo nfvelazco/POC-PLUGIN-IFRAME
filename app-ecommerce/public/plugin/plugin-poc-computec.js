@@ -44,12 +44,6 @@ try {
                
             if($("#iawindow").length === 0) {
 
-               $(document).on('click', '#iabotBtn', function() {
-                  $('#iawindow').toggleClass('open');
-                  $('#iawindowLoader').toggleClass('open');
-                  $('#iabot').toggleClass('opened');
-               });
-
                console.log('append Iframe')
                const style = `
                   <style id="iframe-style">
@@ -336,6 +330,12 @@ try {
                   $("#iawindowLoader").remove();
                });
 
+               $(document).on('click', '#iabotBtn', function() {
+                  $('#iawindow').toggleClass('open');
+                  $('#iawindowLoader').toggleClass('open');
+                  $('#iabot').toggleClass('opened');
+               });
+
                $(window).on('resize', function() {
                   if ($(window).width() <= 767) {
                      var viewportHeight = window.visualViewport ? window.visualViewport.height : $(window).height();
@@ -345,9 +345,11 @@ try {
             }
          }
          else{
-            if($("#iawindow").length > 0)
+            if($("#iawindow").length > 0) {
                console.log(`La url: "${currentUrl}" no se encuentra en la lista permitida`)
-            $("#iawindow").remove()
+               $("#iabot").remove();
+               $("#iawindow").remove();
+            }
          }
       }, 500); // Verifica cada segundo
    });
