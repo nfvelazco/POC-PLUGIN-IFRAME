@@ -41,13 +41,10 @@ try {
             const hostIframe = 'https://ia.snooparg.online/';
             // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
             const queryParam = `product_id=${find_url[0].parametro}`;
-            const fcFrame = $('#fc_frame');
                
             if($("#iawindow").length === 0) {
 
                console.log('append Iframe')
-
-               fcFrame.hide();
 
                const style = `
                   <style id="iframe-style">
@@ -328,19 +325,6 @@ try {
                $("#iawindow iframe").on('load', function() {
                   $("#iawindowLoader").remove();
                });
-
-               $(document).on('click', '#iabotBtn', function() {
-                  $('#iawindow').toggleClass('open');
-                  $('#iawindowLoader').toggleClass('open');
-                  $('#iabot').toggleClass('opened');
-               });
-
-               $(window).on('resize', function() {
-                  if ($(window).width() <= 767) {
-                     var viewportHeight = window.visualViewport ? window.visualViewport.height : $(window).height();
-                     $('#iawindow').css('height', (viewportHeight - 104)  + 'px');
-                  }
-               });
             }
          }
          else{
@@ -348,10 +332,25 @@ try {
                console.log(`La url: "${currentUrl}" no se encuentra en la lista permitida`)
                $("#iabot").remove();
                $("#iawindow").remove();
-               fcFrame.show();
             }
          }
       }, 500); // Verifica cada segundo
+
+      const fcFrame = $('#fc_frame');
+      fcFrame.hide();
+      
+      $(document).on('click', '#iabotBtn', function() {
+         $('#iawindow').toggleClass('open');
+         $('#iawindowLoader').toggleClass('open');
+         $('#iabot').toggleClass('opened');
+      });
+
+      $(window).on('resize', function() {
+         if ($(window).width() <= 767) {
+            var viewportHeight = window.visualViewport ? window.visualViewport.height : $(window).height();
+            $('#iawindow').css('height', (viewportHeight - 104)  + 'px');
+         }
+      });
    });
    console.log('Ready cargado')
    // Aquí puedes realizar otras acciones después de que el script se haya cargado.
