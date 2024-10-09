@@ -28,16 +28,6 @@
    --white: #FFF;
 }
 
-/* Solo para Muy Estética  */
-.joinchat__button {
-   display: none;
-}
-
-/* Solo para Computec  */
-#fc_frame {
-   display: none;
-}
-
 .iawindow,
 .iawindow-loader {
    position: fixed;
@@ -63,7 +53,7 @@
 
 .iawindow iframe {
    width: 100%;
-   height: calc(100% - 61px - 24px);
+   height: calc(100% - 59px - 24px);
    border: 0;
    display: block;
 }
@@ -71,7 +61,6 @@
 .iawindow .iawindow-header {
    display: flex;
    align-items: center;
-   height: 44px;
    gap: 1rem;
    padding: .5rem 1rem;
    border-bottom: 1px solid var(--gray-lighter);
@@ -92,6 +81,7 @@
    font-family: var(--body-font-family);
    font-size: var(--font-size-lg);
    font-weight: 700;
+   margin: 0;
 }
 
 .iawindow .iawindow-copy {
@@ -226,3 +216,4 @@
       font-size: var(--font-size-sm);
    }
 }
+        
