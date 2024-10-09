@@ -34,20 +34,25 @@ try {
          const currentUrl = window.location.href;
          //console.log(currentUrl)
          const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
-            
+         
          if(find_url.length>0){
             // Codifica la URL para usarla como parámetro de consulta
             //const encodedUrl = encodeURIComponent(currentUrl);
             const hostIframe = 'https://ia.snooparg.online/';
             // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
             const queryParam = `product_id=${find_url[0].parametro}`;
+            const fcFrame = $('#fc_frame');
                
             if($("#iawindow").length === 0) {
 
                console.log('append Iframe')
+
+               fcFrame.hide();
+
                const style = `
                   <style id="iframe-style">
-                     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+                    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
                      :root {
                         --body-color: #2e2e2e;
                         --body-font-family: "Noto Sans", sans-serif;
@@ -76,16 +81,6 @@ try {
                         --white: #FFF;
                      }
 
-                     /* Solo para Muy Estética  */
-                     .joinchat__button {
-                        display: none;
-                     }
-
-                     /* Solo para Computec  */
-                     #fc_frame {
-                        display: none;
-                     }
-
                      .iawindow,
                      .iawindow-loader {
                         position: fixed;
@@ -111,7 +106,7 @@ try {
 
                      .iawindow iframe {
                         width: 100%;
-                        height: calc(100% - 61px - 24px);
+                        height: calc(100% - 59px - 24px);
                         border: 0;
                         display: block;
                      }
@@ -119,7 +114,6 @@ try {
                      .iawindow .iawindow-header {
                         display: flex;
                         align-items: center;
-                        height: 44px;
                         gap: 1rem;
                         padding: .5rem 1rem;
                         border-bottom: 1px solid var(--gray-lighter);
@@ -140,6 +134,7 @@ try {
                         font-family: var(--body-font-family);
                         font-size: var(--font-size-lg);
                         font-weight: 700;
+                        margin: 0;
                      }
 
                      .iawindow .iawindow-copy {
@@ -325,7 +320,7 @@ try {
                            Conversando con el producto
                         </h3> 
                      </div>
-                     <iframe src="${hostIframe}?${queryParam}"/>
+                     <iframe src="${hostIframe}?${queryParam}"></iframe>
                      <div class="iawindow-copy"><div>powered by Snoop</div></div>
                   </div>
                `);
@@ -353,6 +348,7 @@ try {
                console.log(`La url: "${currentUrl}" no se encuentra en la lista permitida`)
                $("#iabot").remove();
                $("#iawindow").remove();
+               fcFrame.show();
             }
          }
       }, 500); // Verifica cada segundo
