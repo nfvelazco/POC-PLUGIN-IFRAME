@@ -341,7 +341,7 @@ try {
                $("#iawindow").remove();
 
                if (document.contains($('#fc_frame')[0])) {
-                  $('#fc_frame').hide();
+                  $('#fc_frame').show();
                   console.log('fc_frame encontrado y mostrado');
                }
             }
