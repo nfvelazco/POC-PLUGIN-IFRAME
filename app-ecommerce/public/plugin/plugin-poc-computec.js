@@ -34,6 +34,8 @@ try {
          const currentUrl = window.location.href;
          //console.log(currentUrl)
          const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
+
+         console.log('currentUrl', currentUrl)
          
          if(find_url.length>0){
             // Codifica la URL para usarla como parámetro de consulta
@@ -325,6 +327,11 @@ try {
                $("#iawindow iframe").on('load', function() {
                   $("#iawindowLoader").remove();
                });
+            
+               if (document.contains($('#fc_frame')[0])) {
+                  $('#fc_frame').hide();
+                  console.log('fc_frame encontrado y ocultado');
+               }
             }
          }
          else{
@@ -332,12 +339,14 @@ try {
                console.log(`La url: "${currentUrl}" no se encuentra en la lista permitida`)
                $("#iabot").remove();
                $("#iawindow").remove();
+
+               if (document.contains($('#fc_frame')[0])) {
+                  $('#fc_frame').hide();
+                  console.log('fc_frame encontrado y mostrado');
+               }
             }
          }
       }, 500); // Verifica cada segundo
-
-      const fcFrame = $('#fc_frame');
-      fcFrame.hide();
       
       $(document).on('click', '#iabotBtn', function() {
          $('#iawindow').toggleClass('open');
