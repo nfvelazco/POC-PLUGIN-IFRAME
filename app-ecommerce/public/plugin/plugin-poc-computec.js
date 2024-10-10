@@ -12,16 +12,16 @@ return new Promise((resolve, reject) => {
 try {
    const URLs = [
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/CELUS00005",
-         parametro: 'CELUS00005'
+         url: "https://gezatek-test.easycommercetech.com/product/CELUS00001",
+         parametro: 'CELUS00001'
       },
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/PCH014",
-         parametro: 'PCH014'
+         url: "https://gezatek-test.easycommercetech.com/product/MONIS00001",
+         parametro: 'MONIS00001'
       },
       { 
          url: 'http://127.0.0.1:5501/app-ecommerce/public/ejemplo-computec.html',
-         parametro: 'CELUS00005'
+         parametro: 'CELUS00001'
       }
    ];
      
@@ -32,7 +32,6 @@ try {
    $(document).ready(function() {
       setInterval(function() {
          const currentUrl = window.location.href;
-         //console.log(currentUrl)
          const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
 
          console.log('currentUrl', currentUrl)
@@ -41,7 +40,7 @@ try {
          if(find_url.length>0){
             // Codifica la URL para usarla como parámetro de consulta
             //const encodedUrl = encodeURIComponent(currentUrl);
-            const hostIframe = 'https://ia.snooparg.online/';
+            const hostIframe = 'https://c437-2800-810-5f8-3d-d853-5266-5f95-5154.ngrok-free.app/';
             // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
             const queryParam = `product_id=${find_url[0].parametro}`;
 
@@ -151,12 +150,19 @@ try {
                         background-color: var(--white);
                      }
 
-                     .iawindow .iawindow-copy > div {
+                     .iawindow .iawindow-copy > a {
                         color: var(--gray-light);
                         font-family: var(--body-font-family);
                         font-size: var(--font-size-xs);
+                        text-decoration: none;
                         text-align: center;
+                        transition: color .15s ease;
                      }
+
+                     .iawindow .iawindow-copy > a:hover {
+                        color: var(--primary);
+                     }
+
                      .iawindow.open {
                         bottom: 80px;
                         opacity: 1;
@@ -327,7 +333,9 @@ try {
                         </h3> 
                      </div>
                      <iframe src="${hostIframe}?${queryParam}"></iframe>
-                     <div class="iawindow-copy"><div>powered by Snoop</div></div>
+                     <div class="iawindow-copy">
+                        <a href="https://www.snoopconsulting.com" target="_blank" rel="noopener noreferrer">powered by Snoop</a>
+                     </div>
                   </div>
                `);
 
