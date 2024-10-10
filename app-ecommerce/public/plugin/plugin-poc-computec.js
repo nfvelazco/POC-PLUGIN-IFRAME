@@ -30,8 +30,8 @@ try {
          const currentUrl = window.location.href;
          const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
 
-         console.log('currentUrl', currentUrl)
-         console.log('find_url', find_url)
+         console.log('currentUrl', currentUrl);
+         console.log('find_url', find_url);
          
          if(find_url.length>0){
             // Codifica la URL para usarla como parámetro de consulta
