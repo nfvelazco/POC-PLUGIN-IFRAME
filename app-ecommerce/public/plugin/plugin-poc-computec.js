@@ -18,10 +18,6 @@ try {
       { 
          url: "https://gezatek-test.easycommercetech.com/product/MONIS00001",
          parametro: 'MONIS00001'
-      },
-      { 
-         url: 'http://127.0.0.1:5501/app-ecommerce/public/ejemplo-computec.html',
-         parametro: 'CELUS00001'
       }
    ];
      
@@ -40,7 +36,7 @@ try {
          if(find_url.length>0){
             // Codifica la URL para usarla como parámetro de consulta
             //const encodedUrl = encodeURIComponent(currentUrl);
-            const hostIframe = 'https://c437-2800-810-5f8-3d-d853-5266-5f95-5154.ngrok-free.app/';
+            const hostIframe = 'http://182.160.29.93:81/';
             // Ahora puedes usar 'encodedUrl' en tu lógica, por ejemplo:
             const queryParam = `product_id=${find_url[0].parametro}`;
 
