@@ -354,7 +354,7 @@ try {
                            <span class="iawindow-iso-snoop">
                               <img src="https://raw.githubusercontent.com/bernabefuentes-snoop/assets/refs/heads/main/computec/img/iso-snoop.svg" alt="Snoop" />
                            </span>
-                           <span>Snoop</span
+                           <span>Snoop</span>
                         </a>
                      </div>
                   </div>
