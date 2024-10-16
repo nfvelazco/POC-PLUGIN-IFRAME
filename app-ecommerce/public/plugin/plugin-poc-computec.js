@@ -143,14 +143,27 @@ try {
                      }
 
                      .iawindow .iawindow-copy {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
                         height: 24px;
+                        text-align: center;
                         background-color: var(--white);
                      }
 
+                     .iawindow .iawindow-copy  .iawindow-iso-snoop {
+                        margin-left: 0.4rem;
+                        margin-right: 0.2rem; 
+                        filter: grayscale(100%);
+                        transition: color .15s ease;
+                     }
+
+                     .iawindow .iawindow-copy  .iawindow-iso-snoop img {
+                        display: block;
+                     }
+
                      .iawindow .iawindow-copy > a {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100%;
                         color: var(--gray-light);
                         font-family: var(--body-font-family);
                         font-size: var(--font-size-xs);
@@ -161,6 +174,10 @@ try {
 
                      .iawindow .iawindow-copy > a:hover {
                         color: var(--primary);
+                     }
+
+                     .iawindow .iawindow-copy > a:hover .iawindow-iso-snoop {
+                        filter: none;
                      }
 
                      .iawindow.open {
@@ -334,7 +351,13 @@ try {
                      </div>
                      <iframe src="${hostIframe}?${queryParam}"></iframe>
                      <div class="iawindow-copy">
-                        <a href="https://www.snoopconsulting.com" target="_blank" rel="noopener noreferrer">powered by Snoop</a>
+                        <a href="https://www.snoopconsulting.com" target="_blank" rel="noopener noreferrer">
+                           <span>powered by</span> 
+                           <span class="iawindow-iso-snoop">
+                              <img src="https://raw.githubusercontent.com/bernabefuentes-snoop/assets/refs/heads/main/computec/img/iso-snoop.svg" alt="Snoop" />
+                           </span>
+                           <span>Snoop</span>
+                        </a>
                      </div>
                   </div>
                `);
