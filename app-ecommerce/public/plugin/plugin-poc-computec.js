@@ -162,6 +162,7 @@ try {
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        height: 100%;
                         color: var(--gray-light);
                         font-family: var(--body-font-family);
                         font-size: var(--font-size-xs);
