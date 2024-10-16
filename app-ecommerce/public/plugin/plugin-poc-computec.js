@@ -144,6 +144,7 @@ try {
 
                      .iawindow .iawindow-copy {
                         height: 24px;
+                        text-align: center;
                         background-color: var(--white);
                      }
 
@@ -159,7 +160,7 @@ try {
                      }
 
                      .iawindow .iawindow-copy > a {
-                        display: flex;
+                        display: inline-flex;
                         align-items: center;
                         justify-content: center;
                         height: 100%;
