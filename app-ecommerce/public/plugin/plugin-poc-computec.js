@@ -22,10 +22,6 @@ try {
       { 
          url: "https://gezatek-test.easycommercetech.com/product/PCH014",
          parametro: 'PCH014'
-      },
-      {
-         url: 'http://127.0.0.1:5501/app-ecommerce/public/ejemplo-computec.html',
-         parametro: 'PCH014'
       }
    ];
      
