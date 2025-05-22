@@ -22,19 +22,26 @@ try {
       { 
          url: "https://gezatek-test.easycommercetech.com/product/PCH014",
          parametro: 'PCH014'
+      },
+      {
+         url: "/app-ecommerce/public/ejemplo-computec.html",
+         parametro: 'CELUS00001'
       }
    ];
      
    await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
    console.log('El script se ha cargado correctamente.');
-   const urlConBarra = (url) => `${url}/`
+   // const urlConBarra = (url) => `${url}/`
    
    $(document).ready(function() {
       setInterval(function() {
-         const currentUrl = window.location.href;
-         const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
-
+         const currentUrl = new URL(window.location.href);
+         const path = currentUrl.pathname + currentUrl.search + currentUrl.hash;
+        
+         const find_url = URLs.filter(x => x.url == path);
+         
          console.log('currentUrl', currentUrl);
+         console.log('path', path);
          console.log('find_url', find_url);
          
          if(find_url.length>0){
@@ -379,7 +386,7 @@ try {
                $("#iawindow").remove();
             }
          }
-      }, 500); // Verifica cada segundo
+      }, 1000); // Verifica cada segundo
       
       $(document).on('click', '#iabotBtn', function() {
          $('#iawindow').toggleClass('open');
