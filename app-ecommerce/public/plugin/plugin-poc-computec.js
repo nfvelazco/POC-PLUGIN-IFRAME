@@ -12,29 +12,32 @@ return new Promise((resolve, reject) => {
 try {
    const URLs = [
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/CELUS00001",
+         url: "/product/CELUS00001",
          parametro: 'CELUS00001'
       },
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/MONIS00001",
+         url: "/product/MONIS00001",
          parametro: 'MONIS00001'
       },
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/PCH014",
+         url: "/product/PCH014",
          parametro: 'PCH014'
       }
    ];
      
    await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
    console.log('El script se ha cargado correctamente.');
-   const urlConBarra = (url) => `${url}/`
+   // const urlConBarra = (url) => `${url}/`
    
    $(document).ready(function() {
       setInterval(function() {
-         const currentUrl = window.location.href;
-         const find_url = URLs.filter(x => x.url == currentUrl || urlConBarra(x.url) == currentUrl);
-
+         const currentUrl = new URL(window.location.href);
+         const path = currentUrl.pathname + currentUrl.search + currentUrl.hash;
+        
+         const find_url = URLs.filter(x => x.url == path);
+         
          console.log('currentUrl', currentUrl);
+         console.log('path', path);
          console.log('find_url', find_url);
          
          if(find_url.length>0){
@@ -379,7 +382,7 @@ try {
                $("#iawindow").remove();
             }
          }
-      }, 500); // Verifica cada segundo
+      }, 1000); // Verifica cada segundo
       
       $(document).on('click', '#iabotBtn', function() {
          $('#iawindow').toggleClass('open');
