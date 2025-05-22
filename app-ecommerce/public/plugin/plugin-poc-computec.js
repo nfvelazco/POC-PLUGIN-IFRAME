@@ -12,20 +12,16 @@ return new Promise((resolve, reject) => {
 try {
    const URLs = [
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/CELUS00001",
+         url: "/product/CELUS00001",
          parametro: 'CELUS00001'
       },
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/MONIS00001",
+         url: "/product/MONIS00001",
          parametro: 'MONIS00001'
       },
       { 
-         url: "https://gezatek-test.easycommercetech.com/product/PCH014",
+         url: "/product/PCH014",
          parametro: 'PCH014'
-      },
-      {
-         url: "/app-ecommerce/public/ejemplo-computec.html",
-         parametro: 'CELUS00001'
       }
    ];
      
