@@ -403,12 +403,3 @@ try {
    console.error('Error al cargar el script:', error);
 }
 })();
-
-(function () {
-  const script = document.createElement('script');
-  script.src = '//fw-cdn.com/13449401/5522869.js';
-  script.setAttribute('chat', 'true');
-  script.async = true;
-
-  document.head.appendChild(script);
-})();
